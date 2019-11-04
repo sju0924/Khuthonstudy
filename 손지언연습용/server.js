@@ -29,12 +29,8 @@ app.post('/submit.html',(req,res)=>{
     fs.readFile('./submit.html',(err,data)=>{
         if (err)
             throw err;
-        console.log(req.body.title);
-        
-        
-    
-        
-
+        console.log("제목 : " +  req.body.title);
+        console.log("내용 : " + req.body.description)
         res.writeHead(200,{'Content-Type':'text/html'});
         res.end(data);
     });
