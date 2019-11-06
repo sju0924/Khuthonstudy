@@ -3,7 +3,8 @@
     <head>
         <meta charset = "utf-8">
         <title>연습 페이지</title>
-        <link rel = "stylesheet" href = "styles/styles.css"/>
+        <link rel = "stylesheet" href = "styles/style.css"/>
+        
     </head>
     <body>
         <script src = "scripts/jquery.js"></script>
@@ -11,5 +12,56 @@
 
         <h1>제이쿼리 연습</h1>
         <p>연습 페이지입니다. 제이쿼리가 제발 잘 돌아갔으면.</p>
+        <br><br>
+        <h1>2단원 링크 연습</h1><br>
+        <h2>새로운 창에서 링크를 열어보자</h2>
+        <p>새로운 창에서 열기<a href = "http://www.naver.com" class="new-window">클릭</a></p>
+        <p>기존 창에서 열기<a href = "http://www.naver.com">클릭</a></p>
+        <br>
+
+        <h1>링크에 아이콘 붙이기</h1>
+        <ul>
+            <li><a href = "../main.html">index</a></li>
+            <li><a href = "../penance.html">penance</a></li>
+            <li><a href= "../제이쿼리/images/new-window-icon.png">image</a></li>
+        </ul>
+
+        <br>
+
+        <h1>간단한 탭 만들기</h1>
+        <ul id = "tabs">
+            <li><a href = "#description" class = "unselected">description</a></li>
+            <li><a href = "#photos" class="unselected">photos</a></li>
+            <li><a href = "#details" class="unselected">details</a></li>
+            <li><a href = "#reviews"class="unselected">reviews</a></li>
+            <li><a href = "#related"class="unselected">Related Items</a></li>
+        </ul>
+
+        <div id= "description" class = "tab-section">
+            <h2>overview</h2>
+            <p>This section contains a basic overview of our product.</p>
+        </div>
+
+        <div id= "photos" class = "tab-section" >
+            <h2>photos</h2>
+            <p>사진 섹터</p>
+        </div>
+
+        <div id ="details" class = "tab-section">
+            <h2>details</h2>
+            <p>디테일</p>
+        </div>
+
+        <div id = "reviews" class = "tab-section">
+            <h2>reviews</h2>
+            <p>리뷰</p>
+        </div>
+
+        <div id = "related" class = "tab-section">
+            <h2>related</h2>
+            <p>관련?</p>
+        </div>
+
+
     </body>
 </html>
