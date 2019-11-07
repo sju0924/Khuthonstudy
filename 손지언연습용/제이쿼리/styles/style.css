@@ -77,3 +77,32 @@ a.img{
     color : darkgray;
 }
 
+dt{
+    cursor:pointer;
+}
+
+dt:hover{
+    color:#2aa198;
+}
+
+#scrolling{
+    width:500px;
+    height:300px;
+    overflow:auto;
+    
+}
+
+.jpsTrack{
+    background:#dde;
+    position:relative;
+    
+}
+
+.jspDrag{
+    background:#D33682;
+    position:relative;
+    top:0;
+    left:0;
+    cursor: pointer;
+}
+

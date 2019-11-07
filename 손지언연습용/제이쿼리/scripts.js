@@ -11,6 +11,13 @@ $(document).ready(function(){
         $(this).removeClass('unselected').addClass('current');
         e.preventDefault;
     }).filter(':first').click()//탭만들기
+
+    dynamic();//qna만들기
+
+    $('#scrolling').jScrollPane({
+        showArrows : true,
+        verticalGutter : 20
+    });
     
 });
 
@@ -19,7 +26,12 @@ $(document).ready(function(){
 });
 
 
-
+function dynamic(){
+    $('dd').hide()
+    $('dt').bind('click',function(){
+        $(this).next().toggle();
+    });
+}
 
 function externalLinks(){
     $('a.new-window').bind('click',function(e){
