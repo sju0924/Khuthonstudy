@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+    <head>
+        <title>자바스크립트 실습</title>
+        <meta charset="utf-8">
+        <style>
+        table,th,td{
+        border:1px solid black;
+        border-collapse: collapse;
+        }
+        </style>
+    </head>
+    <body>
+        <br><br>
+<!--check box-->
+<h4>1) CHECK BOX</h4>
+<input type="checkbox">
+<input type="checkbox">
+<input type="checkbox"><br><br>
+
+<br><br><br><br><br>
+<h1>EVENTS</h1>
+<!--button-->
+<!-- queryselector(선택할 태그)-->
+<h4>2-1) INPUT BUTTON</h4>
+
+<input type="button" value="night" onclick="
+document.querySelector('body').style.backgroundColor='black';
+document.querySelector('body').style.color='white';
+">
+<input type="button" value="day" onclick="
+document.querySelector('body').style.backgroundColor='white';
+document.querySelector('body').style.color='black';
+">
+<br>
+<br>
+<br>
+<h3>Toggle</h3>
+<!-- document.querySelector('#day_night').value 는 this로 대체해서씀
+(태그 자기자신을 가리킴)-->
+<input id="day_night" type="button" value="night" onclick="
+var target=document.querySelector('body');
+if (document.querySelector('#day_night').value ==='day'){
+    target.style.backgroundColor='white';
+    target.style.color='black';
+    document.querySelector('#link').style.color='blue'
+    document.querySelector('#day_night').value='night'
+}else{
+    target.style.backgroundColor='black';
+    target.style.color='white';
+    document.querySelector('#link').style.color='yellow'
+    document.querySelector('#day_night').value='day'
+}
+">
+<br><br><br><br><br>
+
+
+
+
+
+
+<a id="link" href="." style="color:blue">Fake link</a>
+<br><br><br>
+<h4>2-2) INPUT TEXT</h4>
+<input type="text" value="text here" onchange="alert('changed')">
+<br><br><br>
+
+<h4>2-3) ...</h4>
+<input type="text" onkeydown="alert('key down')">
+
+
+
+
+<br><br>
+<script>
+document.write('hiiiiiiiiiiii')</script>
+<br><br><br>
+<!-- alert -->
+<h4>3) ALERT</h4>
+
+<input type="button" value ="click me" onclick="alert('hi!')">
+<!-- onclick 속성값에는 무조건 자바스크립트-->
+
+
+<script>
+document.write();
+</script>
+<br><br><br><br><br>
+<br><br><br><br><br>
+
+<a href="css복습.html">go to CSS 복습내용</a>
+
+
+<h3>추천 검색어</h3>
+<table style="width:100%">
+<tr>
+    <th>웹페이지의 태그 삭제, <br>
+        태그에 자식태그 추가</th>
+     <th>웹브라우저 자체 제어<br>
+        현재 열려있는 웹페이지 주소 알아낼때<br>
+        새 창을 열 때<br>
+        웹브라우저 화면 크기를 js통해 알아낼때
+    </th>   
+     <th>웹페이지 리로드 하지않고 정보 변경</th>
+    <th>웹페이지가 리로드되어도 현재상태 유지</th>
+    <th>인터넷이 끊겨도 동작하게</th>
+    <th>화상 통신 웹 앱</th>
+
+</tr>
+<tr>
+    <th>document 객체, DOM 객체</th>
+    <th>window 객체 </th>
+    <th>ajax</th>
+    <th>cookie</th>
+    <th>offline web application</th>
+    <th>webRTC</th>
+
+
+</tr>
+
+</table>
+
+
+</ul>
+</body>
+</html>
