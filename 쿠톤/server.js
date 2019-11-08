@@ -158,7 +158,15 @@ app.post('/submit.html',(req,res)=>{
         var ID = body.ID;
         var email = body.email;
         var gender = body.gender;
-        var query = db.query('insert into userinfo (ID, email,gender) values ("' + ID + '","' + email + '","' + gender +'")', function(err, rows) {
+        var age = body.age;
+        var query1=body._form1;
+        var query2=body._form2;
+        var query3=body._form3;
+        var query4=body._form4;
+        var query5=body._form5;
+        var query6=body._form6;
+        var query7=body._form7;
+        var query = db.query('insert into userinfo (ID, email,gender,age,air,sleep,plan,money,transport,meal,prefer) values ("' + ID + '","' + email + '","' + gender + '","' + age+'","' + query1 + '","' + query2 + '","' + query3 + '","' + query4 + '","' + query5 + '","' + query6 + '","'+ query7 +'")', function(err, rows) {
         if(err) { throw err;}
             console.log("Data inserted!");
         console.log("이름 : " +  req.body.ID);
@@ -186,17 +194,6 @@ app.post('/trip_type.html',(req,res)=>{
         res.end(data);
     });
 
-    var body = req.body;
-        var ID = body.ID;
-        var des = body.des;
-        var dpt = body.dpt;
-        var arr = body.arr;
-        var query = db.query('insert into destination (ID,destination,dpt,arr) values ("' + ID + '","' + des + '","' + dpt + '","' + arr +'")', function(err, rows) {
-        if(err) { throw err;}
-            console.log("Data inserted!");
-        console.log("이름 : " +  req.body.destination);
-        console.log("메일 : " + req.body.arr)
-    });
 });
 
  app.get('/trip_type_submit.html',(req,res)=>{
