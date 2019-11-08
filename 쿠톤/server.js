@@ -9,8 +9,12 @@ var bodyParser = require('body-parser');
 var template = require('./scripts/template');                                                                 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
-
-
+app.use(session({
+    secret:'keyboard cat',
+    resave:false,
+    saveUnintialized:true
+}));
+const users = [];
 
 
 var db = mysql.createConnection({
@@ -158,6 +162,17 @@ app.post('/submit.html',(req,res)=>{
             console.log("Data inserted!");
         console.log("이름 : " +  req.body.ID);
         console.log("메일 : " + req.body.email)
+    
+            //session
+            const userId =req.body.ID;
+            const idx_id=users.findIndex((item,idx)=>{
+                return item.Id ===userId});
+                if (idx_id>-1){
+                    res.send('User already exists');    
+                }
+                else {users.push({Id:userId});
+                console.log(users);
+        }
     });
 });
 
