@@ -10,6 +10,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 
 
+
+
 var db = mysql.createConnection({
     host:'localhost',
     user:'admin',
@@ -41,6 +43,20 @@ app.get('/inputpage.html',(req,res)=>{
     });
 });
 
+app.get('/show',(req,res)=>{  
+    res.send('다른 사용자 보기');
+    db.query('SELECT * from userinfo', function(err, rows, fields) {  
+    db.end();  
+        if (!err){  
+            res.send(rows);   
+            console.log('The solution is: ', rows);  
+          }  
+          else  
+            console.log('Error while performing Query.');  
+          });  
+    });  
+
+
 app.post('/submit.html',(req,res)=>{
     fs.readFile('./submit.html',(err,data)=>{
         if (err)
@@ -59,20 +75,39 @@ app.post('/submit.html',(req,res)=>{
         console.log("이름 : " +  req.body.ID);
         console.log("메일 : " + req.body.email)
     });
+    
+
+   
+   
 
 });
 
-app.get('/show',(req,res)=>{  
-    db.query('SELECT * from userinfo', function(err, rows, fields) {  
-        db.end();  
-          if (!err){  
-            response.send(rows);   
-            console.log('The solution is: ', rows);  
-          }  
-          else  
-            console.log('Error while performing Query.');  
-          });  
-    });  
+
+app.post('/setdes.html',(req,res)=>{
+    fs.readFile('./setdes.html',(err,data)=>{
+        if (err)
+            throw err;
+        res.writeHead(200,{'Content-Type':'text/html'});
+        res.end(data);
+    });
+
+    var body = req.body;
+        var ID = body.ID;
+        var des = body.des;
+        var dpt = body.dpt;
+        var arr = body.arr;
+        var query = db.query('insert into destination (ID,destination,dpt,arr) values ("' + ID + '","' + des + '","' + dpt + '","' + arr +'")', function(err, rows) {
+        if(err) { throw err;}
+            console.log("Data inserted!");
+        console.log("이름 : " +  req.body.destination);
+        console.log("메일 : " + req.body.arr)
+    });
+
+   
+   
+
+});
+
 
 app.listen(3000,()=>{
     console.log('Server is running on port 3000!'); }
