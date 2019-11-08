@@ -130,7 +130,7 @@ app.get('/show',(req,res)=>{
                     );
                 
                     
-                    res.send(html);
+                    res.send(html+'');
                        
                     //res.writeHead(200);
         
