@@ -107,6 +107,7 @@ app.post('/setdes.html',(req,res)=>{
     fs.readFile('./setdes.html',(err,data)=>{
         if (err)
             throw err;
+        var des = req.body.des;
         res.writeHead(200,{'Content-Type':'text/html'});
         res.end(data);
     });
