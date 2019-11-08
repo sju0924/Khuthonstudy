@@ -53,7 +53,8 @@ app.post('/submit.html',(req,res)=>{
         var ID = body.ID;
         var email = body.email;
         var destination = body.destination;
-        var query = db.query('insert into userinfo (ID, email, destination) values ("' + ID + '","' + email + '","' + destination + '")', function(err, rows) {
+        var gender = body.gender;
+        var query = db.query('insert into userinfo (ID, email, destination,gender) values ("' + ID + '","' + email + '","' + destination + + '","' + gender +'")', function(err, rows) {
         if(err) { throw err;}
             console.log("Data inserted!");
         console.log("제목 : " +  req.body.ID);
