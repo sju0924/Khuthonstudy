@@ -1,10 +1,20 @@
 const express=require('express');
 const app=express();
 const fs=require('fs');
+const mysql = require('mysql');
+var sanitizeHtml = require('sanitize-html');
 var bodyParser = require('body-parser');                                                                     
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 
+
+var db = mysql.createConnection({
+    host:'localhost',
+    user:'admin',
+    password:'KhuTravel2019',
+    database:'world'
+  });
+  db.connect();
 
 app.get('/',(req,res)=>{
     fs.readFile('./main.html',(err,data)=>{
