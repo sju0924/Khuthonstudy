@@ -214,6 +214,11 @@ app.post('/trip_type.html',(req,res)=>{
         var query6=req.query._form6;
         var query7=req.query._form7;
         res.send(query1+query2+query3+query4+query5+query6+query7);
+        var query = db.query('insert into userinfo (air,sleep,plan,money,transport,meal,prefer) values ("' + query1 + '","' + query2 + '","' + query3 + '","' + query4 + '","' + query5 + '","' + query6 + '","'+ query7 +'")', function(err, rows) {
+            if(err) { throw err;}
+                console.log("Data inserted!");
+        });
+        res.redirect('/show');
  })  
    
 
