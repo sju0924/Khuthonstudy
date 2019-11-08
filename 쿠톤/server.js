@@ -69,8 +69,7 @@ app.get('/show',(req,res)=>{
             
             res.send(html);
                
-            //res.writeHead(200);
-
+         
         }); 
     });
    
@@ -89,7 +88,8 @@ app.post('/submit.html',(req,res)=>{
         var ID = body.ID;
         var email = body.email;
         var gender = body.gender;
-        var query = db.query('insert into userinfo (ID, email,gender) values ("' + ID + '","' + email + '","' + gender +'")', function(err, rows) {
+        var age = body.age;
+        var query = db.query('insert into userinfo (ID, email,gender,age) values ("' + ID + '","' + email + '","' + gender + '","' +age +'")', function(err, rows) {
         if(err) { throw err;}
             console.log("Data inserted!");
         console.log("이름 : " +  req.body.ID);

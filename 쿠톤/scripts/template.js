@@ -8,7 +8,7 @@ module.exports = {
       <meta charset="utf-8">
     </head>
     <body>
-      <h1><a href="/">WEB</a></h1>
+      <h1><a href="/">여행친구찾기</a></h1>
       ${control}
       ${body}
       ${list}
@@ -20,7 +20,7 @@ module.exports = {
     var list = '<ul>';
     var i = 0;
     while(i < user.length){
-      list = list + `<li>${user[i].ID}</li>`;
+      list = list + `<li>이름 : ${user[i].ID} 성별: ${user[i].gender} 나이: ${user[i].age} 연락처 : ${user[i].email} </li>`;
       i = i + 1;
     }
     list = list+'</ul>';
