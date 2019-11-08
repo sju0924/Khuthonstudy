@@ -1,5 +1,7 @@
 const express=require('express');
 const app=express();
+var router = express.Router()
+var path = require('path')
 const fs=require('fs');
 const mysql = require('mysql');
 var sanitizeHtml = require('./node_modules/sanitize-html');
@@ -14,6 +16,7 @@ var db = mysql.createConnection({
     password:'KhuTravel2019',
     database:'world'
   });
+  
   db.connect();
 
 app.get('/',(req,res)=>{
@@ -48,9 +51,9 @@ app.post('/submit.html',(req,res)=>{
 
     var body = req.body;
         var ID = body.ID;
-        var name = body.name;
+        var email = body.email;
         var destination = body.destination;
-        var query = connection.query('insert into user (ID, email, destination) values ("' + ID + '","' + email + '","' + destination + '")', function(err, rows) {
+        var query = db.query('insert into userinfo (ID, email, destination) values ("' + ID + '","' + email + '","' + destination + '")', function(err, rows) {
         if(err) { throw err;}
             console.log("Data inserted!");
         console.log("제목 : " +  req.body.ID);
