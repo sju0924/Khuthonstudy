@@ -4,12 +4,12 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'admin',
   password : 'KhuTravel2019',
-  database : 'opentutorials'
+  database : 'service'
 });
   
 connection.connect();
   
-connection.query('SELECT title FROM topic', function (error, results, fields) {
+connection.query('SELECT * FROM userinfo', function (error, results, fields) {
     if (error) {
         console.log(error);
     }

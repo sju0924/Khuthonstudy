@@ -14,7 +14,7 @@ var db = mysql.createConnection({
     host:'localhost',
     user:'admin',
     password:'KhuTravel2019',
-    database:'world'
+    database:'service'
   });
   
   db.connect();
@@ -57,8 +57,8 @@ app.post('/submit.html',(req,res)=>{
         var query = db.query('insert into userinfo (ID, email, destination,gender) values ("' + ID + '","' + email + '","' + destination + + '","' + gender +'")', function(err, rows) {
         if(err) { throw err;}
             console.log("Data inserted!");
-        console.log("제목 : " +  req.body.ID);
-        console.log("내용 : " + req.body.name)
+        console.log("이름 : " +  req.body.ID);
+        console.log("목적지 : " + req.body.destination)
     });
 
 });
