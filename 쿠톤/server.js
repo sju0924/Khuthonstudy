@@ -32,6 +32,9 @@ app.get('/inputpage.html',(req,res)=>{
 
         res.writeHead(200,{'Content-Type':'text/html'});
         res.end(data);
+
+        
+        
     });
 });
 
@@ -39,14 +42,23 @@ app.post('/submit.html',(req,res)=>{
     fs.readFile('./submit.html',(err,data)=>{
         if (err)
             throw err;
-        console.log("제목 : " +  req.body.title);
-        console.log("내용 : " + req.body.description)
         res.writeHead(200,{'Content-Type':'text/html'});
         res.end(data);
     });
+
+    var body = req.body;
+        var ID = body.ID;
+        var name = body.name;
+        var destination = body.destination;
+        var query = connection.query('insert into user (ID, email, destination) values ("' + ID + '","' + email + '","' + destination + '")', function(err, rows) {
+        if(err) { throw err;}
+            console.log("Data inserted!");
+        console.log("제목 : " +  req.body.ID);
+        console.log("내용 : " + req.body.name)
+    });
+
 });
 
 app.listen(3000,()=>{
-    console.log('Server is running on port 3000!');
-});
-
+    console.log('Server is running on port 3000!'); }
+);
