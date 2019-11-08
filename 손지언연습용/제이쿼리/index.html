@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>연습 페이지</title>
+        <link rel = "stylesheet" href = "styles/jquery.jscrollpane.css"/>
+        <link rel = "stylesheet" href = "styles/style.css"/>
+        
+    </head>
+    <body>
+        <script src = "scripts/jquery.js"></script>
+        <script src = "scripts/jquery.mousewheel.js"></script>
+        <script src = "scripts/jquery.jscrollpane.min.js"></script>
+        <script src = "scripts.js"></script>
+
+        <dt><h1>제이쿼리 연습</h1></dt>
+        <dd><p>연습 페이지입니다. 제이쿼리가 제발 잘 돌아갔으면.</p></dd>
+        
+        <br><br>
+        <dt><h1>2단원 링크 연습</h1><br></dt>
+        <dd>
+            <h2>새로운 창에서 링크를 열어보자</h2>
+            <p>새로운 창에서 열기<a href = "http://www.naver.com" class="new-window">클릭</a></p>
+            <p>기존 창에서 열기<a href = "http://www.naver.com">클릭</a></p>
+        </dd>
+        
+        <br>
+
+        <dt><h1>링크에 아이콘 붙이기</h1></dt>
+        <dd>
+            <ul>
+                    <li><a href = "../main.html">index</a></li>
+                    <li><a href = "../penance.html">penance</a></li>
+                    <li><a href= "../제이쿼리/images/new-window-icon.png">image</a></li>
+                </ul>
+        </dd>
+        
+
+        <br>
+
+        <dt><h1>간단한 탭 만들기</h1></dt>
+        <dd>
+                <ul id = "tabs">
+                        <li><a href = "#description" class = "unselected">description</a></li>
+                        <li><a href = "#photos" class="unselected">photos</a></li>
+                        <li><a href = "#details" class="unselected">details</a></li>
+                        <li><a href = "#reviews"class="unselected">reviews</a></li>
+                        <li><a href = "#related"class="unselected">Related Items</a></li>
+                    </ul>
+            
+                    <div id= "description" class = "tab-section">
+                        <h2>overview</h2>
+                        <p>This section contains a basic overview of our product.</p>
+                    </div>
+            
+                    <div id= "photos" class = "tab-section" >
+                        <h2>photos</h2>
+                        <p>사진 섹터</p>
+                    </div>
+            
+                    <div id ="details" class = "tab-section">
+                        <h2>details</h2>
+                        <p>디테일</p>
+                    </div>
+            
+                    <div id = "reviews" class = "tab-section">
+                        <h2>reviews</h2>
+                        <p>리뷰</p>
+                    </div>
+            
+                    <div id = "related" class = "tab-section">
+                        <h2>related</h2>
+                        <p>관련?</p>
+                    </div>
+        </dd>
+        <br><br>
+
+        <dt><h1>요소 숨기기</h1></dt>
+        <dd><p>숨겨진 내용</p></dd>
+
+        <br><br>
+
+        <h1>jscrollpane 만들기</h1>
+        
+            <div id= "scrolling">
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut libero augue. Donec bibendum arcu vitae ex laoreet interdum. Sed dapibus leo vel magna pulvinar, vitae volutpat ante placerat. Duis a elit nulla. Maecenas bibendum lacus tellus, non molestie tortor elementum et. Donec erat tortor, bibendum sed gravida in, iaculis sit amet ipsum. Pellentesque posuere ac ante id tristique. Aenean luctus id arcu sed mattis. Sed blandit ornare hendrerit. Aliquam condimentum elit purus, non condimentum nisl gravida id.
+
+                Donec pulvinar nisl ac volutpat accumsan. Morbi consequat quis augue quis efficitur. Nulla scelerisque lectus a commodo tempor. Duis suscipit sapien odio, a viverra velit commodo eu. Nulla vestibulum diam sed justo sodales, non rutrum sem efficitur. Sed molestie at enim eu hendrerit. Phasellus hendrerit sem id diam congue mollis. Ut sodales ligula ut augue mollis cursus. Maecenas quis lobortis justo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed a quam dolor. Ut nec risus ornare, cursus velit at, egestas ex. Nulla sodales hendrerit eleifend. Mauris at ligula vitae magna cursus iaculis. Proin in interdum mauris, a convallis sem. Suspendisse consectetur eu ex sit amet porttitor.
+                
+                Cras vel purus ex. Donec justo velit, molestie ut mi sit amet, vehicula scelerisque ex. Phasellus urna ipsum, tincidunt molestie ligula quis, pulvinar euismod ligula. Praesent sit amet leo at ante suscipit feugiat. Aenean diam risus, dapibus eu bibendum at, varius nec mauris. Etiam malesuada iaculis elit, a tincidunt felis sagittis sagittis. Curabitur suscipit, nibh in suscipit fermentum, lectus arcu gravida nibh, id mollis felis leo et dui. Curabitur fermentum at dui vel pharetra. Vivamus in sodales turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec auctor libero odio, cursus luctus tellus aliquet vitae. Nulla non congue purus. Ut nisl erat, lobortis ut ligula hendrerit, fringilla vestibulum arcu. Mauris eleifend sed odio ut tempor. Nam eget lorem vitae felis semper molestie a quis mauris.
+                
+                Morbi volutpat euismod odio a ultrices. Curabitur et arcu tincidunt, vestibulum nulla eget, feugiat ipsum. Aliquam magna nibh, convallis id lorem id, sollicitudin porta purus. Pellentesque accumsan nulla eget ipsum aliquet venenatis. Suspendisse quis nulla eget diam auctor tempus. Aliquam lectus risus, sagittis quis aliquet at, gravida in magna. Vivamus quis blandit elit. Vestibulum consequat odio et lectus vulputate, auctor eleifend leo pulvinar.
+                
+                Maecenas hendrerit nisi id accumsan mollis. Sed faucibus, felis eu mattis ornare, magna nulla gravida mi, id laoreet erat velit ac metus. Sed dignissim erat mi, in volutpat turpis tristique sed. Vestibulum non arcu in purus mattis tincidunt ac at eros. Aenean at tristique purus, sit amet rhoncus nunc. Quisque congue sapien vitae gravida facilisis. Nunc tristique volutpat augue, nec interdum eros consequat venenatis. Maecenas in ex augue. Nam ut mi ac neque posuere tempus in vitae turpis. In vel nibh dolor. Quisque volutpat nisl id nibh hendrerit pellentesque. Vivamus leo odio, lacinia vel vulputate et, elementum at ipsum. Maecenas quis bibendum enim.
+            </p>
+        
+        </div>
+        <br>
+        <h1>부드러운 스크롤</h1>
+                    
+
+    </body>
+</html>
