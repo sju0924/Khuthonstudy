@@ -52,16 +52,27 @@ app.post('/submit.html',(req,res)=>{
     var body = req.body;
         var ID = body.ID;
         var email = body.email;
-        var destination = body.destination;
         var gender = body.gender;
         var query = db.query('insert into userinfo (ID, email,gender) values ("' + ID + '","' + email + '","' + gender +'")', function(err, rows) {
         if(err) { throw err;}
             console.log("Data inserted!");
         console.log("이름 : " +  req.body.ID);
-        console.log("목적지 : " + req.body.destination)
+        console.log("메일 : " + req.body.email)
     });
 
 });
+
+app.get('/show',(req,res)=>{  
+    db.query('SELECT * from userinfo', function(err, rows, fields) {  
+        db.end();  
+          if (!err){  
+            response.send(rows);   
+            console.log('The solution is: ', rows);  
+          }  
+          else  
+            console.log('Error while performing Query.');  
+          });  
+    });  
 
 app.listen(3000,()=>{
     console.log('Server is running on port 3000!'); }
