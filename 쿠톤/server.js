@@ -76,11 +76,6 @@ app.get('/show',(req,res)=>{
    
     });  
 
-
-
-
-
-
 app.post('/submit.html',(req,res)=>{
     fs.readFile('./submit.html',(err,data)=>{
         if (err)
@@ -121,26 +116,26 @@ app.post('/trip_type.html',(req,res)=>{
         console.log("이름 : " +  req.body.destination);
         console.log("메일 : " + req.body.arr)
     });
-
- app.post('./submit_trip_type.html',(req,res)=>{
-    fs.readFile('./submit_trip_type.html',(err,data)=>{
-        if (err)
-            throw err;
-        res.writeHead(200,{'Content-Type':'text/html'});
-        res.end(data);
-    });
-    var body=req.body;
-    console.log(body);
-    var form1=body.form1;
-    console.log(body.form1.value);
-    if(err) { throw err;}
-            console.log("****Data inserted!");
-     console.log("***********"+form1);
- })  
-   
-
 });
 
+ app.get('/trip_type_submit.html',(req,res)=>{
+    fs.readFile('./trip_type_submit.html',(err,data)=>{
+        if (err)
+            throw err;
+        res.end(data);
+    });
+        
+        var query1=req.query._form1;
+        var query2=req.query._form2;
+        var query3=req.query._form3;
+        var query4=req.query._form4;
+        var query5=req.query._form5;
+        var query6=req.query._form6;
+        var query7=req.query._form7;
+        console.log(query1+query2+query3+query4+query5+query6+query7);
+        res.send(query1+query2+query3+query4+query5+query6+query7);
+ })  
+   
 
 app.listen(3000,()=>{
     console.log('Server is running on port 3000!'); }
