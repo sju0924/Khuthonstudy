@@ -5,7 +5,8 @@ var path = require('path')
 const fs=require('fs');
 const mysql = require('mysql');
 var sanitizeHtml = require('./node_modules/sanitize-html');
-var bodyParser = require('body-parser');                                                                     
+var bodyParser = require('body-parser');    
+var template = require('./scripts/template');                                                                 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 
@@ -44,16 +45,35 @@ app.get('/inputpage.html',(req,res)=>{
 });
 
 app.get('/show',(req,res)=>{  
-    res.send('다른 사용자 보기');
-    db.query('SELECT * from userinfo', function(err, rows, fields) {  
-    db.end();  
-        if (!err){  
-            res.send(rows);   
-            console.log('The solution is: ', rows);  
-          }  
-          else  
-            console.log('Error while performing Query.');  
-          });  
+
+    fs.readFile('./show.html',(err,data)=>{
+        if (err)
+             throw err;
+
+        db.query('SELECT * from userinfo', function(error, result, fields) {  
+            
+            if (error){  
+                throw error;
+              }  
+            else  
+            
+            var title = "추천 파트너";
+           
+            var description = "누구랑 가실래요?";
+            var list = template.list(result);
+            var html = template.HTML(title, list,
+              `<h2>${title}</h2>${description}`,
+              `<a href="/">집가자</a>`
+            );
+            console.log("읽음")
+            
+            res.send(html);
+               
+            //res.writeHead(200);
+
+        }); 
+    });
+   
     });  
 
 
