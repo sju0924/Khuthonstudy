@@ -6,7 +6,8 @@ const fs=require('fs');
 const mysql = require('mysql');
 var sanitizeHtml = require('./node_modules/sanitize-html');
 var bodyParser = require('body-parser');    
-var template = require('./scripts/template');                                                                 
+var template = require('./scripts/template');      
+const session=require('express-session');                                                           
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(session({
@@ -64,7 +65,7 @@ app.get('/show',(req,res)=>{
             var title = "추천 파트너";
            
             var description = "누구랑 가실래요?";
-            var list = template.list(result);
+            var list = template.list_1(result);
             var html = template.HTML(title, list,
               `<h2>${title}</h2>${description}`,
               `<a href="/">집가자</a>`
@@ -80,14 +81,14 @@ app.get('/show',(req,res)=>{
    
     });  
 
-    app.get('/show/country',(req,res)=>{  
+    app.post('/show/country',(req,res)=>{  
 
         fs.readFile('./show.html',(err,data)=>{
             if (err)
                  throw err;
             var country = req.body.country;
-            db.query('SELECT * from destination where des =' + country, function(error, result, fields) {  
-                
+            db.query("SELECT * from destination where destination =" + " '"+country+"' ", function(error, result, fields) {  
+            console.log("SELECT * from destination where destination =" + " '"+country+"' ")  
                 if (error){  
                     throw error;
                   }  
@@ -96,7 +97,7 @@ app.get('/show',(req,res)=>{
                 var title = "당신과 같은 목적지의 파트너";
                
                 var description = "누구랑 가실래요?";
-                var list = template.list(result);
+                var list = template.list_2(result);
                 var html = template.HTML(title, list,
                   `<h2>${title}</h2>${description}`,
                   `<a href="/">집가자</a>`
@@ -111,14 +112,14 @@ app.get('/show',(req,res)=>{
        
         });  
 
-        app.get('/show/ID',(req,res)=>{  
+        app.post('/show/ID',(req,res)=>{  
 
             fs.readFile('./show.html',(err,data)=>{
                 if (err)
                      throw err;
                 var ID = req.body.ID;
-                db.query('SELECT * from userinfo where ID =' + ID, function(error, result, fields) {  
-                    
+                db.query("SELECT * from userinfo where ID =" + " '"  +ID+"' ", function(error, result, fields) {  
+                console.log("SELECT * from userinfo where ID =" + " '"  +ID+"' ")  
                     if (error){  
                         throw error;
                       }  
@@ -127,7 +128,7 @@ app.get('/show',(req,res)=>{
                     var title = "ID 검색 결과";
                    
                     var description = "검색하신 이용자의 정보입니다.";
-                    var list = template.list(result);
+                    var list = template.list_1(result);
                     var html = template.HTML(title, list,
                       `<h2>${title}</h2>${description}`,
                       `<a href="/">집가자</a>`
