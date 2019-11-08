@@ -65,7 +65,7 @@ app.get('/show',(req,res)=>{
             var title = "추천 파트너";
            
             var description = "누구랑 가실래요?";
-            var list = template.list(result);
+            var list = template.list_1(result);
             var html = template.HTML(title, list,
               `<h2>${title}</h2>${description}`,
               `<a href="/">집가자</a>`
@@ -87,8 +87,8 @@ app.get('/show',(req,res)=>{
             if (err)
                  throw err;
             var country = req.body.country;
-            db.query('SELECT * from destination where des =' + " ' "+country+" ' ", function(error, result, fields) {  
-                
+            db.query("SELECT * from destination where destination =" + " '"+country+"' ", function(error, result, fields) {  
+            console.log("SELECT * from destination where destination =" + " '"+country+"' ")  
                 if (error){  
                     throw error;
                   }  
@@ -97,7 +97,7 @@ app.get('/show',(req,res)=>{
                 var title = "당신과 같은 목적지의 파트너";
                
                 var description = "누구랑 가실래요?";
-                var list = template.list(result);
+                var list = template.list_2(result);
                 var html = template.HTML(title, list,
                   `<h2>${title}</h2>${description}`,
                   `<a href="/">집가자</a>`
@@ -128,7 +128,7 @@ app.get('/show',(req,res)=>{
                     var title = "ID 검색 결과";
                    
                     var description = "검색하신 이용자의 정보입니다.";
-                    var list = template.list(result);
+                    var list = template.list_1(result);
                     var html = template.HTML(title, list,
                       `<h2>${title}</h2>${description}`,
                       `<a href="/">집가자</a>`
