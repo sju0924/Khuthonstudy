@@ -2,24 +2,75 @@
     <head>
             <title>submitpage</title>
             <meta charset = "utf-8">
+            <style>
+                body{
+                    background-color : #112b8d; 
+                    border : 4px solid #d4af37;
+                }
+        
+                #submit{
+                    font-size : 2em; 
+                    line-height : -10em; 
+                    text-align : center;
+                    color : white;
+                    margin : 50px;
+                    font-family : fantasy;
+                }
+                .text{
+                    font-size : 1em; 
+                    line-height : 1.0em; 
+                    text-align : center;
+                    color : white;
+                    font-family : fantasy;
+                    margin : 30px;}
+        
+                #submitbutton{width:60px;
+                    background-color: #f8585b;
+                    border: none;
+                    color:#fff;
+                    padding: 6px 0;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 10px;
+                    cursor: pointer;
+                    border-radius:10px 10px 10px 10px;
+                    margin: 0px 0px; }
+                
+        
+                #descriptionplace{
+                    font-size : 1em;
+                    line-height : 0.5em;
+                    text-align : center;
+                }
+        
+                a:link{color : #f8585b; text-decoration : none; font-family: "Times New Roman";}
+                a:after{color : #ffa8a9; text-decoration : none; font-family: "Times New Roman";}
+                a:before{color : #f8585b; text-decoration : none; font-family: "Times New Roman";}
+        
+            </style>
+        
+
     </head>
 
     <body>
         <script>
             
         </script>
-        <p>제출완료</p>  
+          <p id = submit>Thanks For Your Info.<br>Give Us Some More</p>  
 
-        <form action = "./trip_type.html" method = "POST">
-            <p>ID <input type = "text" name = ID></p>
-            <p>도착지 <input type = "text" name = des placeholder="영어 대문자 입력"></p>
-            <p>출발 <input type = "text" name = dpt placeholder="YYYYMMDD"></p>
-            <p>복귀 <input type = "text" name = arr placeholder="YYYYMMDD"></p>
-                <input type = "submit">
-            </p>
-        </form>
 
-        <p id = "descriptionplace"><a href = "/">처음으로 돌아가기</a></p>
-        <p id = "descriptionplace"><a href = "/show">보기</a></p>
-    </body>
-</html>
+          <form action = "./trip_type.html" method = "POST">
+              <p class = "text" >ID <input type = "text" name = ID></p>
+              <p class = "text">Destination <input type = "text" name = des placeholder="영어 대문자 입력"></p>
+              <p class = "text">Departure <input type = "text" name = dpt placeholder="YYYYMMDD"></p>
+              <p class = "text">Arrival <input type = "text" name = arr placeholder="YYYYMMDD"></p>
+                  <center><input type = "submit" id = "submitbutton"></center>
+              </p>
+          </form>
+  
+          <center>
+          <p id = "descriptionplace"><a href = "/">Return To The First Page</a></p>
+          </center>
+      </body>
+  </html>
