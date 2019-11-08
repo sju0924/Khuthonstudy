@@ -76,6 +76,71 @@ app.get('/show',(req,res)=>{
    
     });  
 
+    app.get('/show/country',(req,res)=>{  
+
+        fs.readFile('./show.html',(err,data)=>{
+            if (err)
+                 throw err;
+            var country = req.body.country;
+            db.query('SELECT * from destination where des =' + country, function(error, result, fields) {  
+                
+                if (error){  
+                    throw error;
+                  }  
+                else  
+                
+                var title = "당신과 같은 목적지의 파트너";
+               
+                var description = "누구랑 가실래요?";
+                var list = template.list(result);
+                var html = template.HTML(title, list,
+                  `<h2>${title}</h2>${description}`,
+                  `<a href="/">집가자</a>`
+                );
+                
+                res.send(html);
+                   
+                //res.writeHead(200);
+    
+            }); 
+        });
+       
+        });  
+
+        app.get('/show/ID',(req,res)=>{  
+
+            fs.readFile('./show.html',(err,data)=>{
+                if (err)
+                     throw err;
+                var ID = req.body.ID;
+                db.query('SELECT * from userinfo where ID =' + ID, function(error, result, fields) {  
+                    
+                    if (error){  
+                        throw error;
+                      }  
+                    else  
+                    
+                    var title = "ID 검색 결과";
+                   
+                    var description = "검색하신 이용자의 정보입니다.";
+                    var list = template.list(result);
+                    var html = template.HTML(title, list,
+                      `<h2>${title}</h2>${description}`,
+                      `<a href="/">집가자</a>`
+                    );
+                
+                    
+                    res.send(html);
+                       
+                    //res.writeHead(200);
+        
+                }); 
+            });
+           
+            });  
+
+
+
 app.post('/submit.html',(req,res)=>{
     fs.readFile('./submit.html',(err,data)=>{
         if (err)
@@ -132,7 +197,6 @@ app.post('/trip_type.html',(req,res)=>{
         var query5=req.query._form5;
         var query6=req.query._form6;
         var query7=req.query._form7;
-        console.log(query1+query2+query3+query4+query5+query6+query7);
         res.send(query1+query2+query3+query4+query5+query6+query7);
  })  
    
