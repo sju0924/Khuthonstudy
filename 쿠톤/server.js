@@ -6,7 +6,8 @@ const fs=require('fs');
 const mysql = require('mysql');
 var sanitizeHtml = require('./node_modules/sanitize-html');
 var bodyParser = require('body-parser');    
-var template = require('./scripts/template');                                                                 
+var template = require('./scripts/template');      
+const session=require('express-session');                                                           
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(session({
@@ -80,13 +81,13 @@ app.get('/show',(req,res)=>{
    
     });  
 
-    app.get('/show/country',(req,res)=>{  
+    app.post('/show/country',(req,res)=>{  
 
         fs.readFile('./show.html',(err,data)=>{
             if (err)
                  throw err;
             var country = req.body.country;
-            db.query('SELECT * from destination where des =' + country, function(error, result, fields) {  
+            db.query('SELECT * from destination where des =' + " ' "+country+" ' ", function(error, result, fields) {  
                 
                 if (error){  
                     throw error;
@@ -111,14 +112,14 @@ app.get('/show',(req,res)=>{
        
         });  
 
-        app.get('/show/ID',(req,res)=>{  
+        app.post('/show/ID',(req,res)=>{  
 
             fs.readFile('./show.html',(err,data)=>{
                 if (err)
                      throw err;
                 var ID = req.body.ID;
-                db.query('SELECT * from userinfo where ID =' + ID, function(error, result, fields) {  
-                    
+                db.query("SELECT * from userinfo where ID =" + " '"  +ID+"' ", function(error, result, fields) {  
+                console.log("SELECT * from userinfo where ID =" + " '"  +ID+"' ")  
                     if (error){  
                         throw error;
                       }  
